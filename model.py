@@ -41,9 +41,7 @@ class Model(object):
         scaleMat = glm.scale(identity, self.scale)
         
         return translateMat*rotationMat*scaleMat
-        
-        
-        
+         
     def render(self):
         
         #Atar buffers a la GPU

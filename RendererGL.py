@@ -27,21 +27,16 @@ triangleData = [-0.5, -0.5, 0.0,    1.0,0.0,0.0,
                 0, 0.5, 0.0,        0.0,1.0,0.0,
                 0.5, -0.5, 0.0,     0.0,0.0,1.0] """
 
-#               POSITIONS           UVs         NORMALS
-triangleData = [-0.5, -0.5, 0.0,    0.0,0.0,    1.0,0.0,0.0,
-                -0.5, 0.5, 0.0,     0.0,1.0,    1.0,0.0,0.0,
-                0.5, -0.5, 0.0,     1.0,0.0,    1.0,0.0,0.0,
+# #               POSITIONS           UVs         NORMALS
+# triangleData = [-0.5, -0.5, 0.0,    0.0,0.0,    1.0,0.0,0.0,
+#                 -0.5, 0.5, 0.0,     0.0,1.0,    1.0,0.0,0.0,
+#                 0.5, -0.5, 0.0,     1.0,0.0,    1.0,0.0,0.0,
                 
-                -0.5, 0.5, 0.0,     0.0,1.0,    1.0,0.0,0.0,
-                0.5, 0.5, 0.0,      1.0,1.0,    1.0,0.0,0.0,
-                0.5, -0.5, 0.0,     1.0,0.0,    1.0,0.0,0.0]
+#                 -0.5, 0.5, 0.0,     0.0,1.0,    1.0,0.0,0.0,
+#                 0.5, 0.5, 0.0,      1.0,1.0,    1.0,0.0,0.0,
+#                 0.5, -0.5, 0.0,     1.0,0.0,    1.0,0.0,0.0]
 
-triangleModel = Model(triangleData)
-triangleModel.loadTexture("Champions.jpg")
-triangleModel.position.z = -10
-triangleModel.scale = glm.vec3(5,5,5)
-
-rend.scene.append(triangleModel)
+obj1 = rend.loadModel(filename = "axe.obj", texture = "axe.bmp", position = (0,-2,-5))
 
 isRunning = True
 while isRunning:
@@ -76,13 +71,13 @@ while isRunning:
     elif keys[K_e]:
         rend.camPosition.z -= 5 * deltaTime
         
-    #triangleModel.rotation.y += 45 * deltaTime
+    obj1.rotation.y += 45 * deltaTime
     
     if keys[K_RIGHT]:
-        triangleModel.rotation.y += 45 * deltaTime 
+        obj1.rotation.y += 45 * deltaTime 
          
     elif keys[K_LEFT]:
-        triangleModel.rotation.y -= 45 * deltaTime
+        obj1.rotation.y -= 45 * deltaTime
             
     rend.elapsedTime += deltaTime
         
